@@ -1,0 +1,51 @@
+﻿@model HomeViewModel
+
+@{ 
+   
+    ViewBag.Title = "Country";
+}
+
+    @*<h3>@Model.PageTitle</h3>
+    <div>
+        Country: @Model.CountryList.CountryName
+    </div>*@
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card-header">
+            <h1>@Model.PageTitle</h1>
+        </div>
+
+        @*<select asp-for="CountryList" asp-items="Model.CountryList"></select>*@
+
+    <div class="col-lg-12">
+        <div class="col-lg-4">
+            <div class="input-box">
+                <label class="label-text">Country</label>
+                <div class="form-group">
+                    @*<select id="txtCountryID"  asp-items="Model.CountryList" class="form-control countryDropdown">
+            <option value="">Select Country</option>
+        </select>*@
+                    @*<span asp-validation-for="Country_Id" class="text-danger"></span>*@
+                    <select id="SelectCountry" asp-items="@(new SelectList(@Model.CountryList, "CountryName"))">
+                        <option value="" selected disabled>SELECT COUNTRY</option>
+                    </select>
+
+                    <br>
+                    Country : @Html.DropDownListFor(m => m.CountryList, new SelectList(Model.CountryList, "CountryISO2","CountryName"),"")
+                </div>
+            </div>
+        </div>
+
+        @foreach (var country in @Model.CountryList)
+        {
+           
+
+            <div class="card-body text-center">
+                <h4>Country Name: @country.CountryISO2</h4>
+                <h5>Country Name: @country.CountryName</h5>
+
+            </div>
+        }
+    </div>
+    </div>

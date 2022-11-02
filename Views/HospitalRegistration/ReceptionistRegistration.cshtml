@@ -1,0 +1,243 @@
+﻿@model HospitalRegistrationViewModel
+
+
+@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"
+
+@{ Layout = ""; }
+
+<html>
+<head>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <style>
+        body {
+            background: #222D32;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .login-title {
+            margin-top: 15px;
+            text-align: left;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ECF0F5;
+            padding-left: 150px;
+        }
+
+        .control-label {
+            font-size: 15px;
+            color: #b9b2b2;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding-left: 120px;
+        }
+
+        select {
+            margin-left: 120px;
+        }
+
+        .btn-success {
+            border-color: #dee2e6;
+            color: #212529;
+            border-radius: 0px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .input-xlarge {
+            margin-left: 120px;
+        }
+
+        .help-block {
+            margin-left: 120px;
+        }
+
+        .project-title {
+            margin-top: 8px;
+            text-align: left;
+            color: #9bc4f7;
+            font-size: 18px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar  bg-dark navbar-dark">
+            <label class="project-title">
+                Medical Management Systems
+            </label>
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a asp-action="index" asp-controller="home" class="nav-link" style="margin-left: 700px;">Home </a>
+                </li>
+                @*<li class="nav-item">
+                        <a asp-action="index" asp-controller="home" class="nav-link">List </a>
+                    </li>*@
+
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <input type="hidden" id="useremail" name="useremail" value="@(Model.UserEmail = Model.UserEmail)" />
+                    <input type="hidden" id="rolesname" name="rolesname" value="@(Model.RolesName = Model.RoleName)" />
+                    <a class="nav-link" href="@Url.Action("usercontactdetails", "userregistrationcontroller", new { Model.UserEmail, Model.RolesName})">Profile</a>
+                </li>
+            </ul>
+
+
+        </nav>
+    </div>
+    <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="login-title">Register New Receptionist</legend>
+            </div>
+
+            <div class="control-group">
+                <!-- E-mail -->
+                <label class="control-label" for="email">E-mail</label>
+                <div class="controls">
+                    <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your E-mail</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password-->
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                    <p class="help-block">Password should be at least 4 characters</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password -->
+                <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                <div class="controls">
+                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please confirm password</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="firstName">First Name</label>
+                <div class="controls">
+                    <input type="text" id="firstName" name="firstName" placeholder="" class="input-xlarge">
+                    <p class="help-block">First Name can contain any letters</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="lastName">Last Name</label>
+                <div class="controls">
+                    <input type="text" id="lastName" name="lastName" placeholder="" class="input-xlarge">
+                    <p class="help-block">Last Name can contain any letters</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="address">Address</label>
+                <div class="controls">
+                    <input type="text" id="address" name="address" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your address</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="city">City</label>
+                <div class="controls">
+                    <input type="text" id="city" name="city" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your City</p>
+                </div>
+            </div>
+
+
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="state">State</label>
+                <div class="controls">
+                    <input type="text" id="state" name="state" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your State</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="zip">Zip</label>
+                <div class="controls">
+                    <input type="text" id="zip" name="zip" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your Zip</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="phone">Phone</label>
+                <div class="controls">
+                    <input type="text" id="phone" name="phone" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your Phone</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="extension">Extension</label>
+                <div class="controls">
+                    <input type="text" id="extension" name="extension" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your Extension</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="fax">Fax</label>
+                <div class="controls">
+                    <input type="text" id="fax" name="fax" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please provide your Fax</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <label class="control-label" for="country">Country</label>
+                <div class="controls">
+
+                    @Html.DropDownListFor(m => m.Country, new SelectList(Model.CountryList, "CountryISO2", "CountryName"), "SELECT")
+                    <p class="help-block">Please provide your Country</p>
+                </div>
+            </div>
+
+
+            <div class="control-group">
+
+                <label class="control-label" for="hospital">Hospital</label>
+                <div class="controls">
+
+                    @Html.DropDownListFor(m => m.HospitalName, new SelectList(Model.HospitalList, "HospitalId", "HospitalName"), "SELECT")
+
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

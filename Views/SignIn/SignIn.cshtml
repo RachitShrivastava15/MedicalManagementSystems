@@ -1,0 +1,145 @@
+﻿@model SignInViewModel
+@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"
+@{ Layout = ""; }
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+@*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+@*<link href="~/css/signin.css" rel="stylesheet" />*@
+@*<link href="~/css/site.css" rel="stylesheet" />*@
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <style>
+        body {
+            background: #222D32;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .login-box {
+            margin-top: 75px;
+            height: auto;
+            background: #1A2226;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .login-title {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ECF0F5;
+        }
+
+        input[type=text] {
+            background-color: #1A2226;
+            border: none;
+            border-bottom: 2px solid #0DB8DE;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            margin-bottom: 20px;
+            padding-left: 0px;
+            color: #ECF0F5;
+        }
+
+        input[type=password] {
+            background-color: #1A2226;
+            border: none;
+            border-bottom: 2px solid #0DB8DE;
+            border-top: 0px;
+            border-radius: 0px;
+            font-weight: bold;
+            outline: 0;
+            padding-left: 0px;
+            margin-bottom: 20px;
+            color: #ECF0F5;
+        }
+
+        .control-label {
+            font-size: 15px;
+            color: #b9b2b2;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .login-btm {
+            float: left;
+        }
+
+        .login-button {
+            padding-right: 0px;
+            text-align: right;
+            margin-bottom: 25px;
+        }
+
+        .btn-success1 {
+            border-color: #0DB8DE;
+            color: #0DB8DE;
+            border-radius: 0px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+    
+    </style>
+    <title>Sign In</title>
+</head>
+<body>
+    <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+
+                <div id="legend">
+                    <legend class="col-lg-12 login-title">Sign In</legend>
+                </div>
+
+                <div class="control-group">
+
+                    <label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+
+                    </div>
+                </div>
+
+                <div class="control-group">
+
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 login-btm login-button">
+
+                    <div class="controls">
+                        <button asp-action="signin" asp-controller="signincontroller" asp-route-model="@Model" class="btn btn-success1">Sign In</button>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-1 login-btm login-button">
+
+                    <div class="controls">
+                        <button asp-action="userregistration" asp-controller="userregistrationcontroller" formmethod="get" class="btn btn-success1">Register</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="col-lg-3 col-md-2"></div>
+</body>
+</html>
+
+

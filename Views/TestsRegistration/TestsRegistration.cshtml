@@ -1,0 +1,129 @@
+﻿@model TestsRegistrationViewModel
+
+
+@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"
+
+@{ Layout = ""; }
+
+<html>
+<head>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background: #222D32;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .login-title {
+            margin-top: 15px;
+            text-align: left;
+            font-size: 30px;
+            letter-spacing: 2px;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #ECF0F5;
+            padding-left: 150px;
+        }
+
+        .control-label {
+            font-size: 15px;
+            color: #b9b2b2;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding-left: 50px;
+        }
+
+        select {
+            margin-left: 50px;
+        }
+
+        .btn-success {
+            border-color: #dee2e6;
+            color: #212529;
+            border-radius: 0px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .input-xlarge {
+            margin-left: 50px;
+        }
+
+        .help-block {
+            margin-left: 220px;
+        }
+        .project-title {
+            margin-top: 8px;
+            text-align: left;
+            color: #9bc4f7;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar  bg-dark navbar-dark">
+            <label class="project-title">
+                Medical Management Systems
+            </label>
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a asp-action="index" asp-controller="home" class="nav-link" style="margin-left: 700px;">Home </a>
+                </li>
+                @*<li class="nav-item">
+                        <a asp-action="index" asp-controller="home" class="nav-link">List </a>
+                    </li>*@
+
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <input type="hidden" id="useremail" name="useremail" value="@(Model.UserEmail = Model.UserEmail)" />
+                    <input type="hidden" id="rolesname" name="rolesname" value="@(Model.RolesName = Model.RoleName)" />
+                    <a class="nav-link" href="@Url.Action("usercontactdetails", "userregistrationcontroller", new { Model.UserEmail, Model.RolesName})">Profile</a>
+                </li>
+            </ul>
+
+
+        </nav>
+    </div>
+    <form class="form-horizontal" action='' method="POST">
+        <fieldset>
+            <div id="legend">
+                <legend class="login-title">Create New Test</legend>
+            </div>
+
+            <div class="control-group">
+                <!-- E-mail -->
+                <label class="control-label" for="testsname">Test Name</label>
+                <div class="controls">
+                    <input type="text" id="testsname" name="testsname" placeholder="" class="input-xlarge">
+
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <label class="control-label" for="hospital">Hospital</label>
+                <div class="controls">
+
+                    @Html.DropDownListFor(m => m.HospitalName, new SelectList(Model.HospitalList, "HospitalId", "HospitalName"), "SELECT")
+
+                </div>
+            </div>
+
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
